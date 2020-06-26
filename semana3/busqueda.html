@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .row {
+            float: left;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .campo {
+            width: 10%;
+        }
+        fieldset {
+            background-color: #6EC0F1;
+            margin-bottom: 20px;
+        }
+        fieldset > div {
+            clear: both;
+        }
+        legend {
+            background-color: blue;
+            color: white;
+            font-size: 120%;
+            padding: 3px;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 15px;
+            margin-right: 15px;
+            font-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inmobiliaria Lindavista</h1>
+    <hr>
+    <h2>Búsqueda de vivienda</h2>
+    <p>Ayudenos a encontrar la vivienda que mejor se ajuste a sus necesidades. Por favor, revise cuidadosamente el siguiente formulario</p>
+    <form name="buscador" id="form-vivienda" action="http://www.lsi.us.es/cursos/cursophp/dihm/busca_vivienda.php" method="POST" onsubmit="return compruebaFormulario();">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <div>
+                <div class="row campo">
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="row">
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Edad</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="edad" id="edad1" value="1" checked><label for="edad1">menos de 20</label>
+                    <input type="radio" name="edad" id="edad2" value="21" ><label for="edad2">de 21 a 30</label>
+                    <input type="radio" name="edad" id="edad3" value="31" ><label for="edad3">de 31 a 40</label>
+                    <input type="radio" name="edad" id="edad4" value="41" ><label for="edad4">más de 40</label>
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Profesión</label>
+                </div>
+                <div class="row">
+                    <select name="profesion" id="profesion">
+                        <option value="Funcionario">Funcionario</option>
+                        <option value="Liberal">Profesión liberal</option>
+                        <option value="Empresario">Empresario</option>
+                        <option value="Artista">Artista</option>
+                        <option value="Deportista">Deportista</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Datos de la vivienda buscada</legend>
+            <div>
+                <div class="row campo">
+                    <label>N° de dormitorios</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="ndormitorios" id="dorm1" value="1" checked><label for="dorm1">1</label>
+                    <input type="radio" name="ndormitorios" id="dorm2" value="2"><label for="dorm2">2</label>
+                    <input type="radio" name="ndormitorios" id="dorm3" value="3"><label for="dorm3">3</label>
+                    <input type="radio" name="ndormitorios" id="dorm4" value="4"><label for="dorm4">4</label>
+                    <input type="radio" name="ndormitorios" id="dorm5" value="5"><label for="dorm5">5</label>
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Tipo de vivienda</label>
+                </div>
+                <div class="row">
+                    <select name="tipo" id="tipo">
+                        <option value="Piso">Piso</option>
+                        <option value="Adosado">Adosado</option>
+                        <option value="Chalet">Chalet</option>
+                        <option value="Casa">Casa</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Precio</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="precio" id="precio1" value="000100" checked><label for="precio1">menos de 100.000 &euro;</label>
+                    <input type="radio" name="precio" id="precio2" value="100200"><label for="precio2">entre 100 y 200.000 &euro;</label>
+                    <input type="radio" name="precio" id="precio3" value="200300"><label for="precio3">entre 200 y 300.000 &euro;</label>
+                    <input type="radio" name="precio" id="precio4" value="300900"><label for="precio4">más de 300.000 &euro;</label>
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Zona</label>
+                </div>
+                <div class="row">
+                    <select name="zona" id="zona" multiple>
+                        <option value="centro">Centro</option>
+                        <option value="nervion">Nervión</option>
+                        <option value="triana">Triana</option>
+                        <option value="aljarafe">Aljarafe</option>
+                        <option value="macarena">Macarena</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="row campo">
+                    <label>Extras</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" name="extras[]" id="extra1" value="Piscina"><label for="extra1">Piscina</label>
+                    <input type="checkbox" name="extras[]" id="extra2" value="Jardín"><label for="extra2">Jardín</label>
+                    <input type="checkbox" name="extras[]" id="extra3" value="Garaje"><label for="extra3">Garaje</label>
+                    <input type="checkbox" name="extras[]" id="extra4" value="Sauna"><label for="extra4">Sauna</label>
+                </div>
+            </div>
+        </fieldset>
+        <div>
+            <input type="checkbox" name="incluir" id="incluir" value="-"><label for="incluir">Deseo recibir información acerca de futuras promociones de inmobiliaria Lindavista</label>
+        </div>    
+        <button type="submit" name="enviar">Enviar formulario</button>
+        <button type="reset" name="borrar">Borrar formulario</button>
+    </form>
+    <script>
+        function compruebaFormulario () {
+            var mensaje = '';
+            // Nombre
+            if(document.forms.buscador.nombre.value == "")
+                mensaje = mensaje + '- Nombre\n';
+            // Edad
+            if(!(document.forms.buscador.edad[0].checked || document.forms.buscador.edad[1].checked || document.forms.buscador.edad[2].checked ||	document.forms.buscador.edad[3].checked))
+                mensaje = mensaje + '- Edad\n';
+            // Profesión
+            if(document.forms.buscador.profesion.value == "0")
+                mensaje = mensaje + '- Profesión\n';
+            // Dormitorios
+            if(!(document.forms.buscador.ndormitorios[0].checked || document.forms.buscador.ndormitorios[1].checked || document.forms.buscador.ndormitorios[2].checked 
+                ||	document.forms.buscador.ndormitorios[3].checked ||	document.forms.buscador.ndormitorios[4].checked))
+                mensaje = mensaje + '- N° Dormitorios\n';
+            // Tipo
+            if(document.forms.buscador.tipo.value == "0")
+                mensaje = mensaje + '- Tipo\n';  
+            // Precio
+            if(!(document.forms.buscador.precio[0].checked || document.forms.buscador.precio[1].checked || document.forms.buscador.precio[2].checked ||	document.forms.buscador.precio[3].checked))
+                mensaje = mensaje + '- Precio\n';
+            // Zona
+            if(document.forms.buscador.zona.value == "")
+                mensaje = mensaje + '- Zona\n';
+            if(mensaje != '') {
+                alert ('Debe introducir los siguientes datos:\n' + mensaje);
+                return (false);
+            } else {
+                return (true);
+            }
+        }
+    </script>
+</body>
+</html>
+
