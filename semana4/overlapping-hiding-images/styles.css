@@ -1,0 +1,22 @@
+body {
+   font-family: verdana, arial, sans-serif; 
+   font-size: 0.8em; 
+   color: white;
+   background-image: url(fondocurvo.gif); 
+   background-repeat: no-repeat;
+}
+p.titulo {
+   font-family: arial; 
+   font-size: 2.4em; 
+   margin: 0 0 0.5em 0;
+}
+p.subtitulo {
+   font-family: arial; 
+   font-size: 1.2em; 
+   margin: 0 0 0.5em 0;
+}
+img {
+   float: left; 
+   margin: 0 1em 0.5em 0.5em;
+}
+

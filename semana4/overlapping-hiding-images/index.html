@@ -1,0 +1,59 @@
+<!DOCtype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Lindavista con mapa de propiedades de varios niveles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function cambiaVisibilidad(imagen) {
+            if (imagen.style.visibility === 'hidden') {
+                imagen.style.visibility = 'visible';
+            } else {
+                imagen.style.visibility = 'hidden';
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="lindavis.gif" alt="Inmobiliaria Lindavista">
+    <p class="titulo">Inmobiliaria Lindavista</p>
+    <p class="subtitulo">Catálogo de propiedades</p>
+    <p>Haga click sobre las casillas para<br>mostrar u ocultar los distintos<br>tipos de propiedades</p>
+    <form>
+        <input type="checkbox" id="pisos" name="pisos" checked onclick="cambiaVisibilidad(mapaPisos)">
+        <label for="pisos">Pisos</label>
+        <br>
+        <input type="checkbox" id="chalets" name="chalets" checked onclick="cambiaVisibilidad(mapaChalets)">
+        <label for="chalets">Chalets</label>
+        <br>
+        <input type="checkbox" id="apartamentos" name="apartamentos" checked onclick="cambiaVisibilidad(mapaApartamentos)">
+        <label for="apartamentos">Apartamentos</label>
+        <br>
+        <input type="checkbox" id="oficinas" name="oficinas" checked onclick="cambiaVisibilidad(mapaOficinas)">
+        <label for="oficinas">Oficinas</label>
+        <br>
+        <input type="checkbox" id="locales" name="locales" checked onclick="cambiaVisibilidad(mapaLocales)">
+        <label for="locales">Locales</label>
+        <br>
+    </form>       
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaFondo" src="mapa-fondo.gif" alt="mapa de fondo">
+    </div>
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaPisos" src="mapa-pisos.gif" alt="mapa de pisos">
+    </div>
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaApartamentos" src="mapa-apartamentos.gif" alt="mapa de apartamentos">
+    </div>
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaChalets" src="mapa-chalets.gif" alt="mapa de chalets">
+    </div>
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaLocales" src="mapa-locales.gif" alt="mapa de locales">
+    </div>
+    <div style="position: absolute; top: 80px; left: 200px">
+        <img id="mapaOficinas" src="mapa-oficinas.gif" alt="mapa de oficinas">
+    </div>
+</body>
+</html>
